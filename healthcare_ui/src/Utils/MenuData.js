@@ -1,0 +1,112 @@
+import {
+  MdAdminPanelSettings,
+  MdCalendarMonth,
+  MdCardMembership,
+  MdCategory,
+  MdDashboard,
+  MdDashboardCustomize,
+  MdEmail,
+  MdGroup,
+  MdHealing,
+  MdManageSearch,
+  MdMiscellaneousServices,
+  MdPayments,
+  MdPeople,
+  MdPersonPin,
+  MdSettings,
+  MdLocalHospital,
+} from "react-icons/md";
+import { APPRoutes } from "./Route";
+
+const NAV = [
+  {
+    id : 1,
+    label: "Dashboard",             
+    icon: <MdDashboard size={20} />,
+    description: "Track platform health, KPIs, and operational summaries in one place.",
+    page: APPRoutes.DASHBOARD,
+  },
+  { 
+    id : 2,
+    label: "Clients",               
+    icon: <MdPeople size={20} />,
+    description: "Manage organizations, access setup, and client lifecycle details.",
+    page: APPRoutes.CLIENTS,
+  },
+  {
+    id : 3,
+    label: "Users",
+    icon: <MdAdminPanelSettings size={20} />,
+    description: "Control user accounts, roles, and permissions across the platform.",
+    page: APPRoutes.USERS,
+  },
+  { 
+    id : 4,
+    label: "Patients",              
+    icon: <MdPersonPin size={20} />,
+    description: "View and maintain patient records, profiles, and engagement data.",
+  },
+  { 
+    id : 5,
+    label: "Doctors",               
+    icon: <MdLocalHospital size={20} />,
+    description: "Handle provider profiles, specialties, and doctor availability.",
+    page: APPRoutes.DOCTORS,
+  },
+  {
+    id : 6, 
+    label: "Roles and Permissions", 
+    icon: <MdAdminPanelSettings size={20} />,
+    description: "Control user roles, permission groups, and security boundaries.",
+    page: APPRoutes.ROLES,
+  },
+  { 
+    id : 7,
+    label: "Email Templates",       
+    icon: <MdEmail size={20} />,
+    description: "Create and manage reusable communication templates and notifications.",
+  },
+  {
+    id : 8, 
+    label: "Documents",            
+    icon: <MdDashboardCustomize size={20} />,
+    description: "Store, organize, and access important files across workflows.",
+  },
+  {
+    id : 9,
+    label: "Subscription",
+    icon: <MdCardMembership size={20} />,
+    description: "Configure plans, billing subscriptions, and customer enrollments.",
+    children: [
+      { label: "Manage Plans", icon: <MdPayments size={17} />, page: APPRoutes.SUBSCRIPTION_MANAGE_PLANS },
+      { label: "Subscribers",  icon: <MdGroup size={17} />, page: APPRoutes.SUBSCRIPTION_SUBSCRIBERS },
+    ],
+  },
+  {
+    id : 10, 
+    label: "Appointments", 
+    icon: <MdCalendarMonth size={20} />,
+    description: "Coordinate schedules, bookings, and visit timelines efficiently.",
+  },
+  {
+    id : 11, 
+    label: "Config",        
+    icon: <MdSettings size={20} />,
+    description: "Adjust system settings, defaults, and environment configuration.",
+  },
+  {
+    id : 12, 
+    label: "Audit Logs",    
+    icon: <MdManageSearch size={20} />,
+    description: "Review activity trails, changes, and compliance events.",
+    page: APPRoutes.AUDIT_LOGS,
+  },
+  {
+    id : 13,
+    label: "Services",
+    icon: <MdHealing size={20} />,
+    description: "Manage medical service definitions, categories, and configurations.",
+    page: APPRoutes.SERVICES,
+  },
+];
+export default NAV;

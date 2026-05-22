@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --hc-sidebar-start: #1d4fa8;
+  --hc-sidebar-end: #132c6b;
+  --hc-sidebar-accent: #6ab6ff;
+}
+
+.hc-sidebar-surface {
+  background: linear-gradient(160deg, var(--hc-sidebar-start), var(--hc-sidebar-end));
+  color: #e9f5f9;
+}
+
+.hc-desktop-sidebar {
+  width: 260px;
+  flex: 0 0 260px;
+  overflow: hidden;
+  transition: width 240ms ease, flex-basis 240ms ease;
+}
+
+.hc-desktop-sidebar.collapsed {
+  width: 0;
+  flex-basis: 0;
+}
+
+.hc-desktop-sidebar-inner {
+  width: 260px;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 180ms ease, transform 240ms ease;
+}
+
+.hc-desktop-sidebar.collapsed .hc-desktop-sidebar-inner {
+  opacity: 0;
+  transform: translateX(-14px);
+  pointer-events: none;
+}
+
+.hc-main-content {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.hc-sidebar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hc-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.hc-brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hc-brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hc-brand-copy h2 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 800;
+}
+
+.hc-brand-copy p {
+  margin: 2px 0 0;
+  font-size: 0.77rem;
+  color: #b7d7df;
+  letter-spacing: 0.04em;
+}
+
+.hc-sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 9px 12px;
+}
+
+.hc-sidebar-search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  color: #ffffff;
+  font-size: 0.93rem;
+}
+
+.hc-sidebar-search input::placeholder {
+  color: #c5dce2;
+}
+
+.hc-sidebar-nav {
+  margin-top: 8px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.hc-sidebar-surface,
+.hc-sidebar-nav {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hc-sidebar-surface::-webkit-scrollbar,
+.hc-sidebar-nav::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.hc-menu-block {
+  margin-bottom: 8px;
+}
+
+.hc-menu-item,
+.hc-submenu-item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: inherit;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  transition: none;
+}
+
+/* Desktop: smooth transition for menu items */
+@media (min-width: 992px) {
+
+  .hc-menu-item,
+  .hc-submenu-item {
+    transition: all 0.2s ease;
+  }
+
+  /* .hc-desktop-sidebar {
+    width: 160px !important;
+    flex: 0 0 160px !important;
+  }
+
+  .hc-desktop-sidebar-inner{
+    width: 160px !important;
+  } */
+}
+
+.hc-menu-item:hover,
+.hc-submenu-item:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.hc-menu-item.active,
+.hc-submenu-item.active {
+  background: rgba(106, 182, 255, 0.26);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(106, 182, 255, 0.45);
+}
+
+.hc-menu-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.hc-menu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hc-submenu-wrap {
+  margin-top: 4px;
+  margin-left: 14px;
+  padding-left: 12px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.3);
+  animation: hc-fade-slide 220ms ease;
+}
+
+.hc-submenu-item {
+  justify-content: flex-start;
+  gap: 10px;
+  color: #d7ecf1;
+  font-size: 0.92rem;
+}
+
+.hc-sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 14px;
+}
+
+.hc-logout-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hc-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+@keyframes hc-fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hc-desktop-sidebar,
+  .hc-desktop-sidebar-inner {
+    transition: none;
+  }
+}
